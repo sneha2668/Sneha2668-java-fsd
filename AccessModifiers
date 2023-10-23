@@ -1,0 +1,38 @@
+package AssistedPracticeProject;
+
+public class AccessModifiers {
+
+	    private int privateObj; 
+	    // only accessible within this class
+	    int defaultObj;
+	    // accessible within this class and any class in the same package
+	    protected int protectedObj;
+	    // accessible within this class and any class in the same package, as well as any subclass in a different package
+	    public int publicObj;
+	    // accessible from anywhere
+
+	    public AccessModifiers() {
+	        privateObj = 10;
+	        defaultObj = 20;
+	        protectedObj = 30;
+	        publicObj = 40;
+	    }
+
+	    public void printFields() {
+	        System.out.println("privateObj: " + privateObj);
+	        System.out.println("defaultObj: " + defaultObj);
+	        System.out.println("protectedObj: " + protectedObj);
+	        System.out.println("publicObj: " + publicObj);
+	    }
+
+	    public static void main(String[] args) {
+	        AccessModifiers accessModifiers = new AccessModifiers();
+
+	        // access all fields from within the same class
+	        accessModifiers.printFields();
+
+	        // only public fields can be accessed from outside the class
+	        System.out.println("publicField (from outside the class): " + accessModifiers.publicObj);
+	    }
+	}
+
