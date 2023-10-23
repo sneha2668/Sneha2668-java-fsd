@@ -1,0 +1,20 @@
+package AssistedPracticeProject;
+
+public class TypeCasting {
+	public static void main(String[] args) {
+        // Implicit type casting
+        int a = 10;
+        double b = 20.5;
+        double sum = a + b;
+        System.out.println("Implicit type casting:");
+        System.out.println(sum);
+
+        // Explicit type casting
+        String c = "25";
+        String d = "20.5";
+        float sum2 = Float.parseFloat(c) + Float.parseFloat(d);
+        System.out.println("Explicit type casting:");
+        System.out.println(sum2);
+    }
+}
+
