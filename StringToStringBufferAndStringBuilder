@@ -1,0 +1,20 @@
+package AssistedPracticeProject;
+
+public class StringToStringBufferAndStringBuilder {
+	
+	    public static void main(String[] args) {
+	        // Create a string
+	        String str = "Hello, world!";
+
+	        // Convert the string to a StringBuffer
+	        StringBuffer stringBuffer = new StringBuffer(str);
+
+	        // Convert the string to a StringBuilder
+	        StringBuilder stringBuilder = new StringBuilder(str);
+
+	        // Display the converted StringBuffer and StringBuilder
+	        System.out.println("StringBuffer: " + stringBuffer);
+	        System.out.println("StringBuilder: " + stringBuilder);
+	    }
+	}
+
