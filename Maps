@@ -1,0 +1,47 @@
+package PracticeProject;
+
+	import java.util.HashMap;
+	import java.util.LinkedHashMap;
+	import java.util.TreeMap;
+	import java.util.Map;
+
+	public class Maps{
+	    public static void main(String[] args) {
+	        // HashMap - An unordered map
+	        Map<String, Integer> hashMap = new HashMap<>();
+	        hashMap.put("Alice", 25);
+	        hashMap.put("Bob", 30);
+	        hashMap.put("Charlie", 22);
+	        hashMap.put("David", 28);
+
+	        System.out.println("HashMap (Unordered):");
+	        for (String name : hashMap.keySet()) {
+	            System.out.println(name + " is " + hashMap.get(name) + " years old");
+	        }
+
+	        // LinkedHashMap - Preserves insertion order
+	        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+	        linkedHashMap.put("Eve", 24);
+	        linkedHashMap.put("Frank", 29);
+	        linkedHashMap.put("Grace", 27);
+	        linkedHashMap.put("Hank", 26);
+
+	        System.out.println("\nLinkedHashMap (Insertion Order Preserved):");
+	        for (String name : linkedHashMap.keySet()) {
+	            System.out.println(name + " is " + linkedHashMap.get(name) + " years old");
+	        }
+
+	        // TreeMap - Sorted by keys
+	        Map<String, Integer> treeMap = new TreeMap<>();
+	        treeMap.put("Zoe", 35);
+	        treeMap.put("Yasmine", 32);
+	        treeMap.put("Xander", 40);
+	        treeMap.put("Wendy", 37);
+
+	        System.out.println("\nTreeMap (Sorted by Keys):");
+	        for (String name : treeMap.keySet()) {
+	            System.out.println(name + " is " + treeMap.get(name) + " years old");
+	        }
+	    }
+	}
+
