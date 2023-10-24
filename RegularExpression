@@ -1,0 +1,37 @@
+package AssistedPracticeProject;
+
+	import java.util.Scanner;
+	import java.util.regex.Pattern;
+	import java.util.regex.Matcher;
+
+	public class RegularExpression {
+
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        System.out.println("Regex Verification Program");
+	        System.out.print("Enter a regular expression: ");
+	        String regex = scanner.nextLine();
+
+	        System.out.print("Enter a string to match: ");
+	        String inputString = scanner.nextLine();
+
+	        boolean isMatch = verifyRegex(regex, inputString);
+
+	        if (isMatch) {
+	            System.out.println("String matches the regular expression.");
+	        } else {
+	            System.out.println("String does not match the regular expression.");
+	        }
+
+	        scanner.close();
+	    }
+
+	    public static boolean verifyRegex(String regex, String input) {
+	        Pattern pattern = Pattern.compile(regex);
+	        Matcher matcher = pattern.matcher(input);
+	        return matcher.matches();
+	    }
+	}
+
+
