@@ -1,4 +1,4 @@
-package PracticeProject;
+package AssistedPracticeProject;
 
 	import java.util.HashMap;
 	import java.util.LinkedHashMap;
