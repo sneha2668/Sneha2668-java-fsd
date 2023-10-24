@@ -1,0 +1,33 @@
+package AssistedPracticeProject;
+public class Methods {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public String greet(String name) {
+        return "Hello, " + name + "!";
+    }
+
+    public static void main(String[] args) {
+        Methods example = new Methods();
+
+        // Test the add method
+        int result1 = example.add(5, 3);
+        System.out.println("5 + 3 = " + result1);
+        if (result1 == 8) {
+            System.out.println("add method test passed");
+        } else {
+            System.out.println("add method test failed");
+        }
+
+        // Test the greet method
+        String result2 = example.greet("Alice");
+        System.out.println(result2);
+        if (result2.equals("Hello, Alice!")) {
+            System.out.println("greet method test passed");
+        } else {
+            System.out.println("greet method test failed");
+        }
+    }
+}
