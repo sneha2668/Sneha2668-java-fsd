@@ -1,0 +1,58 @@
+package PracticeProject;
+
+public class InnerClassTest {
+	
+
+	    public static void main(String[] args) {
+	        // Create an instance of the outer class.
+	        OuterClass outerClass = new OuterClass();
+
+	        // Create an instance of the inner class using the outer class instance.
+	        OuterClass.InnerClass innerClass = outerClass.new InnerClass();
+
+	        // Call a method on the inner class.
+	        innerClass.print();
+
+	        // Access a field of the inner class.
+	        int value = innerClass.getValue();
+	        assertEquals(10, value);
+
+	        // Use the inner class to access a private member of the outer class.
+	        int privateValue = innerClass.getPrivateValue();
+	        assertEquals(20, privateValue);
+
+	        // Test other functionality specific to the inner class.
+	        // ...
+
+	        // If all of the tests pass, then the inner class implementation is verified.
+	        System.out.println("All tests passed!");
+	    }
+
+	    private static void assertEquals(int expected, int actual) {
+	        if (expected != actual) {
+	            throw new AssertionError("Expected: " + expected + ", but got: " + actual);
+	        }
+	    }
+
+	    private static class OuterClass {
+
+	        private int privateValue = 20;
+
+	        private class InnerClass {
+
+	            public void print() {
+	                System.out.println("Inner class printing!");
+	            }
+
+	            public int getValue() {
+	                return 10;
+	            }
+
+	            public int getPrivateValue() {
+	                return privateValue;
+	            }
+	        }
+	    }
+	}
+
+
