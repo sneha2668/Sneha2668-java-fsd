@@ -1,0 +1,47 @@
+package AssistedPracticeProject;
+
+class Person {
+    private String name;
+    private int age;
+
+    // Default (no-argument) constructor
+    public Person() {
+        name = "John Doe";
+        age = 30;
+    }
+
+    // Parameterized constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Copy constructor
+    public Person(Person other) {
+        this.name = other.name;
+        this.age = other.age;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class ConstructorTypesExample {
+    public static void main(String[] args) {
+        // Creating objects using different constructors
+        Person person1 = new Person(); // Using default constructor
+        Person person2 = new Person("Alice", 25); // Using parameterized constructor
+        Person person3 = new Person(person1); // Using copy constructor
+
+        System.out.println("Person 1 (Default Constructor):");
+        person1.displayInfo();
+
+        System.out.println("\nPerson 2 (Parameterized Constructor):");
+        person2.displayInfo();
+
+        System.out.println("\nPerson 3 (Copy Constructor):");
+        person3.displayInfo();
+    }
+}
