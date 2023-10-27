@@ -1,0 +1,35 @@
+package AssistedPracticeProject;
+
+class MyCustomException extends Exception {
+    public MyCustomException(String message) {
+        super(message);
+    }
+}
+
+public class Exceptions {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println("Result: " + result); // This line won't be reached
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException caught: " + e.getMessage());
+        } catch (MyCustomException e) {
+            System.out.println("Custom exception caught: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block is executed.");
+        }
+    }
+
+    public static int divide(int dividend, int divisor) throws MyCustomException {
+        try {
+            if (divisor == 0) {
+                throw new ArithmeticException("Division by zero is not allowed.");
+            }
+            return dividend / divisor;
+        } catch (ArithmeticException e) {
+            throw new MyCustomException("Custom exception: " + e.getMessage());
+        }
+    }
+}
+
+	
