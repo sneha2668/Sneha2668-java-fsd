@@ -1,0 +1,31 @@
+package AssistedPracticeProject;
+
+	public class MyThread extends Thread implements Runnable {
+	    @Override
+	    public void run() {
+	        System.out.println("Thread running...");
+	    }
+
+	    public static void main(String[] args) {
+	        // Create a new thread by extending the `Thread` class
+	        MyThread thread1 = new MyThread();
+
+	        // Create a new thread by implementing the `Runnable` interface
+	        MyThread thread2 = new MyThread();
+	        Thread thread3 = new Thread(thread2);
+
+	        // Start the threads
+	        thread1.start();
+	        thread3.start();
+
+	        // Wait for the threads to finish executing
+	        try {
+	            thread1.join();
+	            thread3.join();
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+
+	        System.out.println("All threads finished executing.");
+	    }
+	}
