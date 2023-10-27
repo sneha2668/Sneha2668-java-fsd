@@ -1,0 +1,60 @@
+package AssistedPracticeProject;
+
+public class SleepWaitDemo {
+    public static void main(String[] args) {
+        final Object lock = new Object(); // A shared object to synchronize on
+
+        // Thread 1: Sleep example
+        Thread thread1 = new Thread(() -> {
+            synchronized (lock) {
+                try {
+                    System.out.println("Thread 1: Entering sleep...");
+                    Thread.sleep(3000); // Sleep for 3 seconds
+                    System.out.println("Thread 1: Woke up after sleep.");
+                } catch (InterruptedException e) {
+                    System.out.println("Thread 1: Interrupted while sleeping.");
+                }
+            }
+        });
+
+        // Thread 2: Wait example
+        Thread thread2 = new Thread(() -> {
+            synchronized (lock) {
+                try {
+                    System.out.println("Thread 2: Waiting for a notification...");
+                    lock.wait(); // Wait indefinitely until notified
+                    System.out.println("Thread 2: Got notified and continuing.");
+                } catch (InterruptedException e) {
+                    System.out.println("Thread 2: Interrupted while waiting.");
+                }
+            }
+        });
+
+        // Start both threads
+        thread1.start();
+        thread2.start();
+
+        try {
+            Thread.sleep(1000); // Give thread2 time to start waiting
+        } catch (InterruptedException e) {
+            System.out.println("Main thread: Interrupted while sleeping.");
+        }
+
+        synchronized (lock) {
+            System.out.println("Main thread: Notifying thread2...");
+            lock.notify(); // Notify thread2 to wake it up
+        }
+
+        // Wait for threads to finish
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread: Interrupted while waiting for threads to finish.");
+        }
+
+        System.out.println("Main thread: All threads have finished.");
+    }
+
+ }
+	
