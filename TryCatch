@@ -1,0 +1,19 @@
+package AssistedPracticeProject;
+
+public class TryCatch {
+	
+	    public static void main(String[] args) {
+	        int[] numbers = { 1, 2, 3, 4, 5 };
+	        int index = 7; // Index that is out of bounds
+
+	        try {
+	            int result = numbers[index]; // Accessing an element outside the array's bounds
+	            System.out.println("Result: " + result); // This line won't be reached
+	        } catch (ArrayIndexOutOfBoundsException e) {
+	            System.out.println("An exception occurred: " + e);
+	        }
+
+	        System.out.println("Program continues after the exception handling.");
+	    }
+    }
+
