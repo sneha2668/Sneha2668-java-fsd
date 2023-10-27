@@ -1,0 +1,77 @@
+package AssistedPracticeProject;
+
+//Define the Shape class
+class Shape {
+ // Common properties for all shapes
+ protected String color;
+ 
+ public Shape(String color) {
+     this.color = color;
+ }
+ 
+ // Common method for all shapes
+ public void draw() {
+     System.out.println("Drawing a " + color + " shape.");
+ }
+
+public double calculateArea() {
+	// TODO Auto-generated method stub
+	return (Double) null;
+}
+}
+
+//Define a subclass Circle that inherits from Shape
+class Circle extends Shape {
+ private double radius;
+ 
+ public Circle(String color, double radius) {
+     super(color);
+     this.radius = radius;
+ }
+ 
+ @Override
+ public void draw() {
+     System.out.println("Drawing a " + color + " circle with radius " + radius);
+ }
+ 
+ public double calculateArea() {
+     return Math.PI * radius * radius;
+ }
+}
+
+//Define a subclass Rectangle that inherits from Shape
+class Rectangle extends Shape {
+ private double width;
+ private double height;
+ 
+ public Rectangle(String color, double width, double height) {
+     super(color);
+     this.width = width;
+     this.height = height;
+ }
+ 
+ @Override
+ public void draw() {
+     System.out.println("Drawing a " + color + " rectangle with width " + width + " and height " + height);
+ }
+ 
+ public double calculateArea() {
+     return width * height;
+ }
+}
+
+public class ObjectOrientedDemo {
+ public static void main(String[] args) {
+     // Creating objects of different shapes
+     Circle redCircle = new Circle("red", 5.0);
+     Rectangle blueRectangle = new Rectangle("blue", 4.0, 6.0);
+     
+     // Demonstrate polymorphism and abstraction
+     Shape[] shapes = {redCircle, blueRectangle};
+     
+     for (Shape shape : shapes) {
+         shape.draw(); // Polymorphism
+         System.out.println("Area: " + shape.calculateArea()); // Abstraction
+     }
+ }
+}
