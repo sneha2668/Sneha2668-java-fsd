@@ -1,0 +1,95 @@
+package AssistedPracticeProject;
+
+	import java.io.File;
+	import java.io.IOException;
+	import java.io.FileWriter;
+	import java.util.Scanner;
+
+	public class FileOperations {
+	    public static void main(String[] args) {
+	        // Specify the file path
+	        String filePath = "sample.txt";
+
+	        // Create a new file
+	        createFile(filePath);
+
+	        // Write to the file
+	        writeToFile(filePath, "Hello, World!");
+
+	        // Read from the file
+	        String content = readFromFile(filePath);
+	        System.out.println("File content: " + content);
+
+	        // Update the file
+	        updateFile(filePath, "Updated content.");
+
+	        // Read the updated content
+	        content = readFromFile(filePath);
+	        System.out.println("Updated content: " + content);
+
+	        // Delete the file
+	        deleteFile(filePath);
+	    }
+
+	    // Create a new file
+	    public static void createFile(String filePath) {
+	        try {
+	            File file = new File(filePath);
+	            if (file.createNewFile()) {
+	                System.out.println("File created: " + file.getName());
+	            } else {
+	                System.out.println("File already exists.");
+	            }
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while creating the file.");
+	            e.printStackTrace();
+	        }
+	    }
+
+	    // Write to the file
+	    public static void writeToFile(String filePath, String content) {
+	        try {
+	            FileWriter writer = new FileWriter(filePath);
+	            writer.write(content);
+	            writer.close();
+	            System.out.println("Content written to the file.");
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while writing to the file.");
+	            e.printStackTrace();
+	        }
+	    }
+
+	    // Read from the file
+	    public static String readFromFile(String filePath) {
+	        try {
+	            File file = new File(filePath);
+	            Scanner scanner = new Scanner(file);
+	            StringBuilder content = new StringBuilder();
+	            while (scanner.hasNextLine()) {
+	                content.append(scanner.nextLine()).append("\n");
+	            }
+	            scanner.close();
+	            return content.toString();
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while reading from the file.");
+	            e.printStackTrace();
+	            return "";
+	        }
+	    }
+
+	    // Update the file
+	    public static void updateFile(String filePath, String newContent) {
+	        writeToFile(filePath, newContent);
+	        System.out.println("File updated.");
+	    }
+
+	    // Delete the file
+	    public static void deleteFile(String filePath) {
+	        File file = new File(filePath);
+	        if (file.delete()) {
+	            System.out.println("File deleted: " + file.getName());
+	        } else {
+	            System.out.println("Failed to delete the file.");
+	        }
+	    }
+	}
