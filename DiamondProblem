@@ -1,0 +1,42 @@
+package AssistedPracticeProject;
+interface Animal {
+  void makeSound();
+}
+
+interface Dog extends Animal {
+  default void makeSound() {
+    System.out.println("Woof!");
+  }
+
+  void bark();
+}
+
+interface Cat extends Animal {
+  void meow();
+}
+
+class GermanShepherd implements Dog, Cat {
+  @Override
+  public void makeSound() {
+    Dog.super.makeSound();
+  }
+
+  @Override
+  public void bark() {
+    System.out.println("Woof!");
+  }
+
+  @Override
+  public void meow() {
+    System.out.println("Meow!");
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    GermanShepherd shepherd = new GermanShepherd();
+
+    // We can now call the makeSound() method without any error.
+    shepherd.makeSound();
+  }
+}
