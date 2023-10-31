@@ -1,0 +1,15 @@
+package AssistedPracticeProject3;
+
+import java.util.Arrays;
+
+public class FourthSmallest {
+    public static void main(String[] args) {
+        int[] list = {18, 72, 3, 455, 46, 34};
+
+        // Sort the list in ascending order.
+        Arrays.sort(list);
+
+        // Print the fourth smallest element.
+        System.out.println("The fourth smallest element is: " + list[3]);
+    }
+}
