@@ -1,0 +1,44 @@
+package AssistedPracticeProject3;
+import java.util.Scanner;
+
+public class SumOfElements {
+    public static void main(String[] args) {
+        // Get the values of n, L, and R from the user.
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        System.out.print("Enter the lower bound: ");
+        int L = scanner.nextInt();
+        System.out.print("Enter the upper bound: ");
+        int R = scanner.nextInt();
+
+        // Check if the number of elements is valid.
+        if (n <= 0) {
+            System.out.println("The number of elements must be positive.");
+            return;
+        }
+
+        // Check if the lower and upper bounds are valid.
+        if (L < 0 || L > n - 1) {
+            System.out.println("The lower bound must be between 0 and n - 1.");
+            return;
+        }
+        if (R < 0 || R > n - 1) {
+            System.out.println("The upper bound must be between 0 and n - 1.");
+            return;
+        }
+        if (L > R) {
+            System.out.println("The lower bound must be less than or equal to the upper bound.");
+            return;
+        }
+
+        // Calculate the sum of the 4 elements in the range.
+        int sum = 0;
+        for (int i = L; i <= R; i++) {
+            sum += i;
+        }
+
+        // Print the sum.
+        System.out.println("The sum of the 4 elements in the range [" + L + ", " + R + "] is: " + sum);
+    }
+}
