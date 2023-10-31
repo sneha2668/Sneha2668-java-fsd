@@ -1,0 +1,43 @@
+package AssistedPracticeProject3;
+public class DoublyLinkedListTraversal {
+    public static void main(String[] args) {
+        // Create a doubly linked list.
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.prev = null;
+        head.next.prev = head;
+        head.next.next.prev = head.next;
+
+        // Traverse the doubly linked list in the forward direction.
+        System.out.println("Traversal of the doubly linked list in the forward direction:");
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+
+        // Traverse the doubly linked list in the backward direction.
+        System.out.println("Traversal of the doubly linked list in the backward direction:");
+        current = head.next.next;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        System.out.println();
+    }
+}
+
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
