@@ -1,0 +1,56 @@
+package AssistedPracticeProject3;
+public class CircularLinkedList {
+    public static void main(String[] args) {
+        // Create a sorted circular linked list.
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = head;
+
+        // Insert a new element in the sorted circular linked list.
+        int newElement =25;
+        head = insert(head, newElement);
+
+        // Print the sorted circular linked list.
+        print(head);
+    }
+
+    private static Node insert(Node head, int newElement) {
+        // Create a new node.
+        Node newNode = new Node(newElement);
+
+        // If the linked list is empty, return the new node.
+        if (head == null) {
+            newNode.next = newNode;
+            return newNode;
+        }
+
+        // Find the position to insert the new node.
+        Node current = head;
+        while (current.next != head && current.next.data < newElement) {
+            current = current.next;
+        }
+
+        // If the new node is to be inserted before the head node, update the head pointer.
+        if (newElement < current.data) {
+            newNode.next = head;
+            head = newNode;
+            current.next = newNode;
+        } else {
+            // Insert the new node after the current node.
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+
+        return head;
+    }
+
+    private static void print(Node head) {
+        Node current = head;
+        while (current.next != head) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println(current.data);
+    }
+}
